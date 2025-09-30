@@ -1,22 +1,29 @@
+// Character Counter page allows users to count words and characters in input text.
+// Uses state to track text, word count, and character count.
 "use client"
 import React from "react";
 import { useState,useEffect } from "react";
 
 const Page = () => {
-    const [text,setText] = useState("")
+    // State for input text, word count, and character count
+    const [text,setText] = useState(" ")
     const [words,setWords] = useState(0)
     const [chars,setChars] = useState(0)
 
+    // Update word and character count when text changes
     useEffect(()=>{
         setWords(text.split(' ').length)
         setChars(text.length)
     },[text])
 
     return (
+    // Main container for the character counter page
     <div className="w-full h-screen bg-amber-50 flex flex-col gap-4 p-12 max-md:p-8 items-center">
+      {/* Page title */}
       <h1 className="text-4xl max-md:text-3xl font-semibold">
         Character Counter
       </h1>
+      {/* Textarea for user input */}
       <textarea
         className="w-full max-w-150 placeholder:text-gray-600 h-fit min-h-40 font-medium rounded-lg border-2 p-4 text-lg "
         placeholder="Enter Text here to count words and characters"
@@ -25,6 +32,7 @@ const Page = () => {
             
         }}
       ></textarea>
+      {/* Display word and character count */}
       <div className="flex justify-between items-center max-w-150 text-2xl w-full">
         <p>{words} words</p>
         <p>{chars} characters</p>
@@ -33,6 +41,7 @@ const Page = () => {
   );
 };
 
+// Export the Page component for use in other parts of the app
 export default Page;
 
 

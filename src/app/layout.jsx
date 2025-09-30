@@ -1,3 +1,5 @@
+// RootLayout component defines the main layout for the application.
+// It sets up the font, global styles, and metadata.
 import { Barlow } from "next/font/google";
 import "./globals.css";
 
@@ -14,7 +16,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // Main layout component for the app
   return (
+    // HTML structure and body wrapper
     <html lang="en">
       <body
         className={` antialiased`}
